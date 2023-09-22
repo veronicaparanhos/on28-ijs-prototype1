@@ -1,6 +1,14 @@
-<h1 align="center">
-  <img src="assets/reprograma-fundos-claros.png" alt="logo reprograma" width="500">
-</h1>
+<div align="center">
+
+  ![Logo Dark](assets/reprograma-fundos-escuros.svg#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Logo Light](assets/reprograma-fundos-claros.png#gh-light-mode-only)
+
+</div>
 
 # Tema da Aula
 
