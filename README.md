@@ -87,7 +87,7 @@ animal.hobbies = ['brincar com bolinha', 'latir pras motos', 'comer'];
 animal['can I have'] = true;
 ```
 
-As duas maneiras de criar um objeto são válidas. Nós vamos utilizar como está na segunda maneira, que é a maneira que mais encontramos pela internet quando falamos de protótipos com JavaScript, mas ambas estão corretas.
+As duas maneiras de criar um objeto são válidas. Nós vamos utilizar como está na segunda maneira, mas ambas estão corretas.
 
 É possível acessar as propriedades de um objeto usando a notação de ponto: `console.log(animal.name)` ou a notação de colchetes: `console.log(animal["can I have"])`.
 
@@ -129,11 +129,11 @@ _Expressão de Função:_
 ```javascript
 let animal = {};
 
-(animal.type = 'cachorro'),
-	//...
-	(animal.eat = function eat() {
-		console.log('O animal está comendo');
-	});
+animal.type = 'cachorro';
+//...
+animal.eat = function eat() {
+	console.log('O animal está comendo');
+};
 ```
 
 _Funções pré-existentes:_
@@ -145,9 +145,9 @@ function eat() {
 
 let animal = {};
 
-(animal.type = 'cachorro'),
-	//...
-	(animal.eat = eat);
+animal.type = 'cachorro',
+//...
+animal.eat = eat;
 ```
 
 É comum que métodos precisem acessar informações que estão armazenadas em outras propriedades do objeto.
@@ -733,12 +733,13 @@ console.log(animal1); //undefined
 Bom...
 Se JavaScript não é a sua primeira linguagem de programação, você pode pensar: ok, essa me parece uma versão piorada de Classe.
 
-Como vocês viram em aulas anteriores, uma classe permite que você crie uma "forma" para um objeto. Então, sempre que você cria uma instância dessa classe, você obtém um objeto com as propriedades e métodos definidos nessa "forma".
+Como vocês verão em aulas posteriores, uma classe permite que você crie uma "forma" para um objeto. Então, sempre que você cria uma instância dessa classe, você obtém um objeto com as propriedades e métodos definidos nessa "forma".
 
-Soa familiar? Isso é basicamente o que fizemos com nossa função construtora `Animal` acima.
-No entanto, em vez de usar a palavra-chave `class`, usamos apenas uma função JavaScript antiga e regular para recriar a **mesma funcionalidade**.
+Isso é basicamente o que fizemos com nossa função construtora `Animal` acima.
 
 Pronto! Deu um pouco de trabalho extra, bem como algum conhecimento sobre o que acontece "sob os panos" do JavaScript, mas os resultados são os mesmos.
+
+No entanto, usamos uma função JavaScript antiga e regular em vez de usar a palavra-chave `class`.
 
 Aqui está a boa notícia: JavaScript não é uma linguagem morta. Está sendo constantemente aprimorado e adicionado pelo [comitê TC-39](https://ui.dev/ecmascript).
 
