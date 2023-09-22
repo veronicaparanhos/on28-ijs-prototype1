@@ -234,7 +234,7 @@ Precisamos receber os valores das propriedades dinamicamente, para cada animal q
 
 Nós temos então o que chamamos de _Função Construtora_, que são funções que "constroem" um novo objeto a partir das propriedades que ela, obrigatoriamente, deve receber de qualquer instância de objeto que a invocar.
 
-Vocês aprenderam em orientação a objetos, que uma classe possui um _constructor_, responsável por receber parâmetros e associá-los ao objeto que está sendo criado.
+Vocês aprenderão em orientação a objetos, que uma classe possui um _constructor_, responsável por receber parâmetros e associá-los ao objeto que está sendo criado.
 A ideia de uma função construtora é muito semelhante.
 Ela recebe parâmetros para construir um objeto com esses valores.
 
@@ -268,6 +268,35 @@ animal2.eat(); //O gato chamado Caju está comendo
 Em resumo:
 Uma função construtora é função especial que cria e inicializa uma instância de um objeto.
 O propósito de um construtor é criar um novo objeto a partir das propriedades existentes de outro objeto, sem que haja repetição de código.
+
+>IMPORTANTE
+Perceba que os parâmetros recebidos podem ter nomes que divergem dos nomes das propriedades dos objetos, exemplo:
+```javascript
+function Animal(tipoDoAnimal, nomeCompleto, idadeEmMeses) {
+	let animal = {};
+
+	animal.type = tipoDoAnimal;
+	animal.name = nomeCompleto;
+	animal.age = idadeEmMeses;
+
+	animal.eat = function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	};
+
+	return animal;
+}
+
+const animal1 = Animal('cachorro', 'Aslam', 3);
+const animal2 = Animal('gato', 'Caju', 1);
+
+console.log('Animal 1: ', animal1);
+console.log('Animal 2: ', animal2);
+
+animal1.eat(); //O cachorro chamado Aslam está comendo
+animal2.eat(); //O gato chamado Caju está comendo
+```
+
+>Embora isso não esteja errado, geralmente utilizamos o mesmo nome, por questões de Clean Code. Mas é importante saber que um é o parâmetro da função e o outro é a propriedade do objeto.
 
 #### → Vamos aplicar? [Exercício 2](/exercicios/para-sala/exercicio-2)
 
@@ -437,6 +466,8 @@ animal2.sleep(10);
 #### Desvantagens da Functional Instantiation with Shared Methods:
 
 - Para usar esse método, você precisa criar um objeto, decorá-lo e depois retorná-lo da função construtora.
+
+- A depender da quantidade de funções, pode ser confuso e esquecer quais funções foram criadas anteriormente.
 
 - Os ponteiros para os métodos compartilhados são criados quando o objeto é instanciado. Se você modificar os métodos e depois criar novos objetos, o objeto original e o novo objeto farão referência a métodos diferentes.
 
