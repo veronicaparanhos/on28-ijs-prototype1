@@ -1,8 +1,5 @@
 # Exercício de Sala 🏫  
 
-- Conteúdo teórico: 
-[Objetos Literais](https://github.com/reprograma/on21-imersao-js-S5-Prototype-1/blob/main/README.md#objetos-literais)
-
 ## Exercício extra 1
 
 ### Gerenciamento de Ingressos para Eventos
