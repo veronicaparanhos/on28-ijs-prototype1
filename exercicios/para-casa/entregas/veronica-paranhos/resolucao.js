@@ -1,3 +1,5 @@
+//função construtora Histórico Médico e seus métodos
+
 function HistoricoMedico() {
   this.consultas = [];
   this.vacinas = [];
@@ -12,7 +14,17 @@ HistoricoMedico.prototype.consultar = function (consulta) {
   this.consultas.unshift(consulta);
 };
 
-function Gatos(nome, idade, cor, castrado) {
+HistoricoMedico.prototype.realizarProcedimento = function (tipo, motivo) {
+  let procedimento = {
+    tipo: tipo,
+    motivo: motivo,
+  };
+  this.procedimentos.push(procedimento);
+};
+
+//função construtora Gato e seus métodos
+
+function Gato(nome, idade, cor, castrado) {
   this.nome = nome;
   this.idade = idade;
   this.cor = cor;
@@ -20,7 +32,12 @@ function Gatos(nome, idade, cor, castrado) {
   this.historico = new HistoricoMedico();
 }
 
-function Cachorros(nome, idade, cor, castrado, raca) {
+Gato.prototype.miar = function () {
+  console.log(`${this.nome} está miando!`);
+};
+
+//função construtora Cachorro e seus métodos
+function Cachorro(nome, idade, cor, castrado, raca) {
   this.nome = nome;
   this.idade = idade;
   this.cor = cor;
@@ -29,13 +46,26 @@ function Cachorros(nome, idade, cor, castrado, raca) {
   this.historico = new HistoricoMedico();
 }
 
-function AnimalExotico(nome, idade, cor, especie, adulto) {
+Cachorro.prototype.latir = function () {
+  console.log(`${this.nome} está latindo!`);
+};
+
+//função construtora Animal Exõtico e seus métodos
+function AnimalExotico(nome, idade, cor, especie) {
   this.nome = nome;
   this.idade = idade;
   this.cor = cor;
   this.especie = especie;
-  this.adulto = adulto;
+  this.adulto = this.ehAdulto();
   this.historico = new HistoricoMedico();
 }
 
-module.exports = { Gatos, Cachorros, AnimalExotico, HistoricoMedico };
+AnimalExotico.prototype.ehAdulto = function () {
+  if (this.especie === "Hamster" && this.idade >= 2) return true;
+  if (this.especie === "Papagaio" && this.idade >= 36) return true;
+  if (this.especie === "Calopsita" && this.idade >= 18) return true;
+
+  return false;
+};
+
+module.exports = { Gato, Cachorro, AnimalExotico, HistoricoMedico };
